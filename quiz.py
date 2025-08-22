@@ -124,3 +124,105 @@ percentage = (score / len(questions)) * 100
 
 # * Display final result *
 print(f"\n{name}, your final score is: {score}/{len(questions)} ({percentage:.2f}%)")
+
+
+
+
+# developed by mintesnot
+
+# Multiple Choice Physics Quiz
+print(" Welcome to the Physics Quiz! \n")
+
+questions = [
+    ("What is the speed of light in vacuum?", 
+     {"A": "3 × 10^8 m/s", "B": "3 × 10^6 m/s", "C": "3 × 10^5 m/s", "D": "3 × 10^4 m/s"}, "A"),
+    
+    ("Who is known as the father of modern physics?", 
+     {"A": "Newton", "B": "Einstein", "C": "Galileo", "D": "Bohr"}, "B"),
+    
+    ("What is the SI unit of force?", 
+     {"A": "Joule", "B": "Pascal", "C": "Newton", "D": "Watt"}, "C"),
+    
+    ("Formula for kinetic energy?", 
+     {"A": "mv", "B": "0.5mv^2", "C": "mgh", "D": "F×d"}, "B"),
+    
+    ("Acceleration due to gravity on Earth?", 
+     {"A": "8.9 m/s^2", "B": "9.8 m/s^2", "C": "10 m/s^2", "D": "9.2 m/s^2"}, "B"),
+    
+    ("Which particle has a negative charge?", 
+     {"A": "Proton", "B": "Neutron", "C": "Electron", "D": "Photon"}, "C"),
+    
+    ("SI unit of work?", 
+     {"A": "Joule", "B": "Newton", "C": "Watt", "D": "Tesla"}, "A"),
+    
+    ("Law of action and reaction?", 
+     {"A": "Newton's 1st", "B": "Newton's 2nd", "C": "Newton's 3rd", "D": "Hooke's Law"}, "C"),
+    
+    ("Unit of power?", 
+     {"A": "Pascal", "B": "Joule", "C": "Watt", "D": "Volt"}, "C"),
+    
+    ("Which wave does not need a medium?", 
+     {"A": "Sound", "B": "Water", "C": "Seismic", "D": "Electromagnetic"}, "D"),
+    
+    ("Boiling point of water (°C)?", 
+     {"A": "0", "B": "50", "C": "100", "D": "200"}, "C"),
+    
+    ("Law relating current, voltage, and resistance?", 
+     {"A": "Coulomb’s law", "B": "Ohm’s law", "C": "Faraday’s law", "D": "Newton’s law"}, "B"),
+    
+    ("SI unit of pressure?", 
+     {"A": "Joule", "B": "Pascal", "C": "Watt", "D": "Newton"}, "B"),
+    
+    ("Device used to measure electric current?", 
+     {"A": "Voltmeter", "B": "Barometer", "C": "Ammeter", "D": "Galvanometer"}, "C"),
+    
+    ("SI unit of frequency?", 
+     {"A": "Hertz", "B": "Newton", "C": "Tesla", "D": "Joule"}, "A"),
+    
+    ("Who discovered gravitation?", 
+     {"A": "Newton", "B": "Einstein", "C": "Tesla", "D": "Faraday"}, "A"),
+    
+    ("Formula for momentum?", 
+     {"A": "KE=0.5mv^2", "B": "p=mv", "C": "F=ma", "D": "V=IR"}, "B"),
+    
+    ("Escape velocity of Earth?", 
+     {"A": "9.8 km/s", "B": "11.2 km/s", "C": "8.9 km/s", "D": "12.5 km/s"}, "B"),
+    
+    ("Gas used in bulbs?", 
+     {"A": "Oxygen", "B": "Nitrogen", "C": "Argon", "D": "Carbon dioxide"}, "C"),
+    
+    ("First law of thermodynamics is about?", 
+     {"A": "Entropy", "B": "Energy conservation", "C": "Force", "D": "Work"}, "B"),
+    
+    ("Speed of sound in air?", 
+     {"A": "343 m/s", "B": "300 m/s", "C": "500 m/s", "D": "1000 m/s"}, "A"),
+    
+    ("Charge of a proton?", 
+     {"A": "Positive", "B": "Negative", "C": "Neutral", "D": "None"}, "A"),
+    
+    ("SI unit of electric charge?", 
+     {"A": "Coulomb", "B": "Volt", "C": "Ohm", "D": "Tesla"}, "A"),
+    
+    ("Lens used in a magnifying glass?", 
+     {"A": "Concave", "B": "Convex", "C": "Plane", "D": "Cylindrical"}, "B"),
+    
+    ("Which scientist proposed E=mc^2?", 
+     {"A": "Newton", "B": "Einstein", "C": "Bohr", "D": "Galileo"}, "B")
+]
+
+score = 0
+
+for i, (q, opts, correct) in enumerate(questions, 1):
+    print(f"\nQ{i}: {q}")
+    for key, value in opts.items():
+        print(f"  {key}. {value}")
+    ans = input("Your answer (A/B/C/D): ").strip().upper()
+    
+    if ans == correct:
+        print(" Correct!")
+        score += 1
+    else:
+        print(f" Incorrect! Correct answer: {correct}. {opts[correct]}")
+
+print("\n Quiz Over!")
+print(f"Your Score: {score}/{len(questions)}")
