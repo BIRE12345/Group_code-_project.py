@@ -60,3 +60,67 @@ elif percentage >= 50:
     print("🙂 Not bad, but you can do better.")
 else:
     print("📚 Keep studying, you'll improve!")
+
+
+#Prepared By: Selamawit
+#==============
+ 
+# * Chemistry Quiz Program - 25 Questions *
+
+# * Intro section: Get user's name and welcome them *
+name = input("Enter your name: ")
+print(f"\nWelcome, {name}! 😊")
+print("This is your 25-question Chemistry quiz. Each question carries equal marks.\n")
+
+# * Questions, options, and correct answers stored as a list of tuples *
+# * Each tuple: (question text, list of options, correct answer as letter) *
+questions = [
+    ("What is the chemical symbol for water?", ["H2O", "O2", "CO2", "NaCl"], "a"),
+    ("Atomic number represents:", ["Number of neutrons", "Number of protons", "Number of electrons", "Mass number"], "b"),
+    ("Which gas is released when acids react with metals?", ["Oxygen", "Hydrogen", "Carbon dioxide", "Nitrogen"], "b"),
+    ("The pH of a neutral solution is:", ["0", "7", "14", "1"], "b"),
+    ("Which element is a noble gas?", ["Oxygen", "Nitrogen", "Neon", "Chlorine"], "c"),
+    ("What is the chemical formula of table salt?", ["KCl", "NaCl", "CaCl2", "MgCl2"], "b"),
+    ("Which is the lightest element?", ["Hydrogen", "Helium", "Carbon", "Oxygen"], "a"),
+    ("Which type of bond involves sharing of electrons?", ["Ionic bond", "Covalent bond", "Metallic bond", "Hydrogen bond"], "b"),
+    ("What is the main gas in the air we breathe?", ["Oxygen", "Nitrogen", "Carbon dioxide", "Hydrogen"], "b"),
+    ("Which substance is acidic?", ["Lemon juice", "Soap", "Baking soda", "Milk of magnesia"], "a"),
+    ("What is the chemical symbol for gold?", ["Ag", "Au", "Gd", "Go"], "b"),
+    ("Which of these is an alkaline substance?", ["Vinegar", "Ammonia", "Lemon juice", "Sulfuric acid"], "b"),
+    ("What is the mass number of an element?", ["Protons + Neutrons", "Protons + Electrons", "Neutrons only", "Electrons only"], "a"),
+    ("Which element is required for hemoglobin?", ["Calcium", "Iron", "Magnesium", "Potassium"], "b"),
+    ("Which gas causes global warming?", ["Nitrogen", "Oxygen", "Carbon dioxide", "Helium"], "c"),
+    ("Which metal is liquid at room temperature?", ["Mercury", "Lead", "Aluminium", "Iron"], "a"),
+    ("Avogadro’s number represents:", ["Number of molecules in 1 mole", "Atomic number", "Number of atoms in 1 g", "Number of ions in solution"], "a"),
+    ("Which type of reaction absorbs heat?", ["Exothermic", "Endothermic", "Displacement", "Combustion"], "b"),
+    ("What is the chemical formula of ammonia?", ["NH3", "H2O", "CH4", "HCl"], "a"),
+    ("Which acid is present in vinegar?", ["Hydrochloric acid", "Sulfuric acid", "Acetic acid", "Nitric acid"], "c"),
+    ("Which element has the highest electronegativity?", ["Oxygen", "Fluorine", "Chlorine", "Hydrogen"], "b"),
+    ("Which type of bond is found in NaCl?", ["Covalent", "Ionic", "Metallic", "Hydrogen"], "b"),
+    ("What is the main component of natural gas?", ["Methane", "Ethane", "Propane", "Butane"], "a"),
+    ("Which is a transition metal?", ["Sodium", "Copper", "Potassium", "Calcium"], "b"),
+    ("Which gas is produced in photosynthesis?", ["Oxygen", "Carbon dioxide", "Nitrogen", "Hydrogen"], "a")
+]
+
+# * Initialize the score variable *
+score = 0
+
+# * Loop through each question and ask the user *
+for i, (question, options, correct) in enumerate(questions, start=1):
+    print(f"\n{i}. {question}")  # * Display question number and text *
+    for opt_index, option in zip("abcd", options):
+        print(f"   {opt_index}) {option}")  # * Display options a-d *
+    answer = input("Your answer (a/b/c/d): ").lower().strip()  # * Get user's answer and normalize it *
+
+    # * Check if the answer is correct *
+    if answer == correct:
+        score += 1
+        print("✅ Correct!")  # * Positive feedback *
+    else:
+        print(f"❌ Wrong! Correct answer is '{correct}) {options[ord(correct)-97]}'")  # * Show correct answer *
+
+# * Calculate final score as percentage *
+percentage = (score / len(questions)) * 100
+
+# * Display final result *
+print(f"\n{name}, your final score is: {score}/{len(questions)} ({percentage:.2f}%)")
