@@ -226,3 +226,73 @@ for i, (q, opts, correct) in enumerate(questions, 1):
 
 print("\n Quiz Over!")
 print(f"Your Score: {score}/{len(questions)}")
+############## developed by julet
+# * Mathematics Quiz Program - 25 Questions *
+# * uesti: Get user's name and welcome them *
+name = input("Enter your name: ")
+print(f"\nWelcome, {name}! ")
+print("This is yoon Mat")
+# * Intro sectionur 25-qhematics quiz. Each question carries equal marks.\n")
+
+# * Questions, options, and correct answers stored as a list of tuples *
+# * Each tuple: (question text, list of options, correct answer as letter) *
+questions = [
+    ("What is 12 + 15?", ["25", "27", "28", "30"], "b"),
+    ("What is 9 × 8?", ["72", "81", "64", "70"], "a"),
+    ("What is the square of 11?", ["121", "111", "101", "131"], "a"),
+    ("What is the square root of 144?", ["10", "11", "12", "13"], "c"),
+    ("Solve for x: 2x + 5 = 15", ["4", "5", "6", "7"], "a"),
+    ("The value of π (pi) is approximately:", ["3.14", "3.41", "3.24", "3.04"], "a"),
+    ("What is 25 ÷ 5?", ["4", "5", "6", "7"], "b"),
+    ("If angles of a triangle are 60°, 60°, and 60°, it is:", ["Scalene", "Isosceles", "Equilateral", "Right-angled"], "c"),
+    ("The perimeter of a square with side 6 cm is:", ["24 cm", "36 cm", "18 cm", "30 cm"], "a"),
+    ("The area of a rectangle with length 8 cm and width 5 cm is:", ["40 cm²", "45 cm²", "35 cm²", "50 cm²"], "a"),
+    ("What is 15% of 200?", ["20", "25", "30", "35"], "c"),
+    ("The sum of interior angles of a pentagon is:", ["360°", "540°", "720°", "450°"], "b"),
+    ("If y = 3x + 2, find y when x = 4", ["10", "12", "14", "16"], "c"),
+    ("Simplify: 5 + 2 × 3", ["21", "11", "16", "10"], "b"),
+    ("The median of 3, 7, 9, 5, 11 is:", ["5", "7", "9", "6"], "b"),
+    ("The mode of 2, 4, 4, 5, 6 is:", ["2", "4", "5", "6"], "b"),
+    ("Convert 0.75 to a fraction:", ["3/4", "2/3", "1/2", "4/5"], "a"),
+    ("If a = 5 and b = 3, find a² - b²", ["16", "25", "9", "8"], "a"),
+    ("The radius of a circle with diameter 10 cm is:", ["10 cm", "5 cm", "7 cm", "8 cm"], "b"),
+    ("The volume of a cube with side 4 cm is:", ["16 cm³", "64 cm³", "48 cm³", "32 cm³"], "b"),
+    ("What is 7² + 24²?", ["625", "625", "625", "625"], "a"),  # Just ensuring correct option formatting
+    ("If 2x = 10, then x = ?", ["4", "5", "6", "7"], "b"),
+    ("The LCM of 6 and 8 is:", ["12", "24", "48", "18"], "b"),
+    ("The HCF of 12 and 18 is:", ["4", "6", "8", "12"], "b"),
+    ("If a triangle has sides 3 cm, 4 cm, 5 cm, its type is:", ["Equilateral", "Isosceles", "Right-angled", "Scalene"], "c")
+]
+
+# * Initialize the score variable *
+score = 0
+
+# * Loop through each question and ask the user *
+for i, (question, options, correct) in enumerate(questions, start=1):
+    print(f"\n{i}. {question}")  # * Display question number and text *
+    for opt_index, option in zip("abcd", options):
+        print(f"   {opt_index}) {option}")  # * Display options a-d *
+    answer = input("Your answer (a/b/c/d): ").lower().strip()  # * Get user's answer and normalize it *
+
+    # * Check if the answer is correct *
+    if answer == correct:
+        score += 1
+        print("✅ Correct!")  # * Positive feedback *
+    else:
+        print(f"❌ Wrong! Correct answer is '{correct}) {options[ord(correct)-97]}'")  # * Show correct answer *
+
+# * Calculate final score as percentage *
+percentage = (score / len(questions)) * 100
+
+# * Display final result *
+print(f"\n{name}, your final score is: {score}/{len(questions)} ({percentage:.2f}%)")
+
+# * Provide feedback based on performance *
+if percentage == 100:
+    print("🌟 Outstanding! You got a perfect score! 🌟")
+elif percentage >= 80:
+    print("💪 Great job! Keep it up!")
+elif percentage >= 50:
+    print("🙂 Not bad, but you can do better.")
+else:
+    print("📚 Keep studying, you'll improve!")
